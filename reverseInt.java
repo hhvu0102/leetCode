@@ -1,7 +1,22 @@
-# Given a 32-bit signed integer, reverse digits of an integer.
+// Given a 32-bit signed integer, reverse digits of an integer.
 
-# This solution can't really check if x is in the accepted range, because Java Compiler itself checks before we can supply an overflow number.
+// LeetCode solution, super smart, written in C++:
+class Solution {
+public:
+    int reverse(int x) {
+        int rev = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            x /= 10;
+            if (rev > INT_MAX/10 || (rev == INT_MAX / 10 && pop > 7)) return 0;
+            if (rev < INT_MIN/10 || (rev == INT_MIN / 10 && pop < -8)) return 0;
+            rev = rev * 10 + pop;
+        }
+        return rev;
+    }
+};
 
+// This solution can't really check if x is in the accepted range, because Java Compiler itself checks before we can supply an overflow number.
 class Solution {
     public int reverse(long x) {
         if (x <= Integer.MIN_VALUE || x >= Integer.MAX_VALUE)
