@@ -1,6 +1,6 @@
-# Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
+// Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 
-# My solution
+// My solution
 class Solution {
     public boolean isPalindrome(int x) {
         String number = String.valueOf(x);
