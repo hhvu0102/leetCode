@@ -1,7 +1,6 @@
 // Given an array nums and a value val, remove all instances of that value in-place and return the new length.
 
-// Super dumb and long solution, and Idk why leetcode doesn't accept this for case arr = [0] and val = 2 for example.
-// Worked in Eclipse though.
+// Super dumb and long solution, and nums = new int[0] is not an in-place remove.
 
 class Solution {
     public int removeElement(int[] nums, int val) {
@@ -13,7 +12,7 @@ class Solution {
         return nums.length;
     }
     else if (nums.length == 1 && val != nums[0]) {
-        return 0;
+        return 1;
     }
     else {
     ArrayList<Integer> index = new ArrayList<>();
@@ -32,6 +31,7 @@ class Solution {
         for (int k = 0; k < nums.length; k++) {
             if (nums[k] == val) {
                 nums[k] = nums[index.get(0)];
+                j = 1;
                 break;
             }
         }
